@@ -6,7 +6,7 @@ import com.gsocket.sever.Connection;
 /**
  * 接受信息
  */
-public interface OnReceiveListener {
+public interface ReceiveListener {
 
 
     /**
@@ -14,7 +14,7 @@ public interface OnReceiveListener {
      * @param connection 连接对象，可以发送消息
      * @param msg 信息
      */
-    void received(Connection connection, byte[] msg);
+    void onReceived(Connection connection, byte[] msg);
 
 }
 

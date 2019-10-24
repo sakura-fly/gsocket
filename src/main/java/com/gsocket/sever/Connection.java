@@ -17,7 +17,7 @@ public class Connection extends Thread {
     @Override
     public void run() {
         while (isRunning) {
-            // Check whether the socket is closed.
+            // Check whether the socket is onClosed.
             if (socket.isClosed()) {
                 close();
                 break;
@@ -35,7 +35,7 @@ public class Connection extends Thread {
                 byte[] data = bytestream.toByteArray();
                 bytestream.close();
                 System.out.println("接收客户端的数据：" + String.format("0x%02x", data[0]));
-                gSocketSever.getOnReceiveListener().received(this, data);
+                gSocketSever.getReceiveListener().onReceived(this, data);
             } catch (IOException e) {
                 e.printStackTrace();
                 break;
@@ -48,8 +48,8 @@ public class Connection extends Thread {
         this.socket = socket;
         this.gSocketSever = gSocketSever;
         isRunning = true;
-        if (gSocketSever.getOnConnectListener() != null) {
-            gSocketSever.getOnConnectListener().onConnect(this);
+        if (gSocketSever.getConnectListener() != null) {
+            gSocketSever.getConnectListener().onConnect(this);
         }
     }
 
@@ -72,8 +72,8 @@ public class Connection extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (gSocketSever.getOnConnectListener() != null) {
-            gSocketSever.getOnConnectListener().onClosed();
+        if (gSocketSever.getConnectListener() != null) {
+            gSocketSever.getConnectListener().onClosed();
         }
     }
 }

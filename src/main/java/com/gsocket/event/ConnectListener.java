@@ -6,7 +6,7 @@ import com.gsocket.sever.Connection;
 /**
  * 连接事件
  */
-public interface OnConnectListener {
+public interface ConnectListener {
     /**
      * 连接成功
      * @param connection 连接对象

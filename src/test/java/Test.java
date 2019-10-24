@@ -1,6 +1,6 @@
-import com.gsocket.event.OnConnectListener;
-import com.gsocket.event.OnReceiveListener;
-import com.gsocket.event.OnSeverClose;
+import com.gsocket.event.ConnectListener;
+import com.gsocket.event.ReceiveListener;
+import com.gsocket.event.SeverListenner;
 import com.gsocket.sever.Connection;
 import com.gsocket.sever.GSocketSever;
 
@@ -13,12 +13,12 @@ public class Test {
 
     // @org.junit.Test
     public static void server() {
-        new GSocketSever(666, new OnReceiveListener() {
-            public void received(Connection connection, byte[] msg) {
+        new GSocketSever(666, new ReceiveListener() {
+            public void onReceived(Connection connection, byte[] msg) {
                 System.out.println(new String(msg));
                 connection.send(msg);
             }
-        }, new OnConnectListener() {
+        }, new ConnectListener() {
             public void onConnect(Connection connection) {
                 System.out.println("onConnect");
             }
@@ -26,9 +26,9 @@ public class Test {
             public void onClosed() {
                 System.out.println("onClosed");
             }
-        }, new OnSeverClose() {
-            public void closed() {
-                System.out.println("OnSeverClose");
+        }, new SeverListenner() {
+            public void onClosed() {
+                System.out.println("SeverListenner");
             }
         });
     }

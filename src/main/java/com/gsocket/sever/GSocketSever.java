@@ -1,57 +1,57 @@
 package com.gsocket.sever;
 
-import com.gsocket.event.OnConnectListener;
-import com.gsocket.event.OnReceiveListener;
-import com.gsocket.event.OnSeverClose;
+import com.gsocket.event.ConnectListener;
+import com.gsocket.event.ReceiveListener;
+import com.gsocket.event.SeverListenner;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 
 public class GSocketSever {
     private ServerSocket serverSocket;
-    private OnReceiveListener onReceiveListener;
-    private OnConnectListener onConnectListener;
-    private OnSeverClose onSeverClose;
+    private ReceiveListener receiveListener;
+    private ConnectListener connectListener;
+    private SeverListenner severListenner;
     private ListeningThread listeningThread;
 
-    public OnReceiveListener getOnReceiveListener() {
-        return onReceiveListener;
+    public ReceiveListener getReceiveListener() {
+        return receiveListener;
     }
 
-    public void setOnReceiveListener(OnReceiveListener onReceiveListener) {
-        this.onReceiveListener = onReceiveListener;
+    public void setReceiveListener(ReceiveListener receiveListener) {
+        this.receiveListener = receiveListener;
     }
 
-    public OnConnectListener getOnConnectListener() {
-        return onConnectListener;
-    }
-
-
-    public OnSeverClose getOnSeverClose() {
-        return onSeverClose;
-    }
-
-    public void setOnSeverClose(OnSeverClose onSeverClose) {
-        this.onSeverClose = onSeverClose;
+    public ConnectListener getConnectListener() {
+        return connectListener;
     }
 
 
+    public SeverListenner getSeverListenner() {
+        return severListenner;
+    }
 
-    public GSocketSever(int port, OnReceiveListener onReceiveListener, OnConnectListener onConnectListener) {
-        this.onReceiveListener = onReceiveListener;
-        this.onConnectListener = onConnectListener;
+    public void setSeverListenner(SeverListenner severListenner) {
+        this.severListenner = severListenner;
+    }
+
+
+
+    public GSocketSever(int port, ReceiveListener receiveListener, ConnectListener connectListener) {
+        this.receiveListener = receiveListener;
+        this.connectListener = connectListener;
         startSever(port);
     }
 
-    public GSocketSever(int port, OnReceiveListener onReceiveListener, OnConnectListener onConnectListener, OnSeverClose onSeverClose) {
-        this.onReceiveListener = onReceiveListener;
-        this.onConnectListener = onConnectListener;
-        this.onSeverClose = onSeverClose;
+    public GSocketSever(int port, ReceiveListener receiveListener, ConnectListener connectListener, SeverListenner severListenner) {
+        this.receiveListener = receiveListener;
+        this.connectListener = connectListener;
+        this.severListenner = severListenner;
         startSever(port);
     }
 
-    public GSocketSever(int port, OnReceiveListener onReceiveListener) {
-        this.onReceiveListener = onReceiveListener;
+    public GSocketSever(int port, ReceiveListener receiveListener) {
+        this.receiveListener = receiveListener;
         startSever(port);
     }
 
