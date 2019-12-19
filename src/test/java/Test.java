@@ -1,6 +1,6 @@
-import com.gsocket.event.ConnectListener;
-import com.gsocket.event.ReceiveListener;
-import com.gsocket.event.SeverListenner;
+import com.gsocket.event.sever.ConnectListener;
+import com.gsocket.event.sever.ReceiveListener;
+import com.gsocket.event.sever.SeverListenner;
 import com.gsocket.sever.Connection;
 import com.gsocket.sever.GSocketSever;
 

@@ -1,8 +1,8 @@
 package com.gsocket.sever;
 
-import com.gsocket.event.ConnectListener;
-import com.gsocket.event.ReceiveListener;
-import com.gsocket.event.SeverListenner;
+import com.gsocket.event.sever.ConnectListener;
+import com.gsocket.event.sever.ReceiveListener;
+import com.gsocket.event.sever.SeverListenner;
 
 import java.io.IOException;
 import java.net.ServerSocket;

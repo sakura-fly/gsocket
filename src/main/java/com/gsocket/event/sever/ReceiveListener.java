@@ -1,4 +1,4 @@
-package com.gsocket.event;
+package com.gsocket.event.sever;
 
 import com.gsocket.sever.Connection;
 
