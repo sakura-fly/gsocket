@@ -15,7 +15,7 @@ public class Test {
     public static void server() {
         new GSocketSever(666, new ReceiveListener() {
             public void onReceived(Connection connection, byte[] msg) {
-                System.out.println(new String(msg));
+                System.out.println(msg);
                 connection.send(msg);
             }
         }, new ConnectListener() {

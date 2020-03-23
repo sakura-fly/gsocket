@@ -34,7 +34,7 @@ public class Connection extends Thread {
                 bytestream.write(buffer, 0, ch);
                 byte[] data = bytestream.toByteArray();
                 bytestream.close();
-                System.out.println("接收客户端的数据：" + String.format("0x%02x", data[0]));
+//                System.out.println("接收客户端的数据：" + String.format("0x%02x", data[0]));
                 gSocketSever.getReceiveListener().onReceived(this, data);
             } catch (IOException e) {
                 e.printStackTrace();

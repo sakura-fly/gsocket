@@ -36,7 +36,7 @@ public class ReceiviceThread extends Thread {
                 bytestream.write(buffer, 0, ch);
                 byte[] data = bytestream.toByteArray();
                 bytestream.close();
-                System.out.println("接收服务端的数据：" + String.format("0x%02x", data[0]));
+//                System.out.println("接收服务端的数据：" + String.format("0x%02x", data[0]));
                 if (receiveListener != null) {
                     receiveListener.receive(client, data);
                 }
